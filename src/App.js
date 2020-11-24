@@ -39,11 +39,12 @@ class App extends Component {
       <div className="App">
         <h1> Monsters Rolodex </h1>
         <SearchBox 
-          placeholder="search monsters"
+          placeholder="Search Monsters"
           handleChange={this.handleChange}
         />   
         <CardList monsters={filteredMonsters} />
       </div>
+
     );
   }
 
@@ -83,3 +84,42 @@ export default App;
 // Soln:- <button onClick={this.handleClik}></button>
 // To access this soln arrow func handleClik = () => {}
 
+// package.json
+// 16.8.6 locked to same version
+// ^16.8.6 atleat match to this or stable
+// ~16.8.6 nearly same only changes minor .6 / . 7 
+// yarn.lock => to provide same versions dependencies 
+// update versions 
+// yarn list react react-dom react@scripts
+// npm list react react-dom react@scripts
+// npm install => skip over some versions 
+// npm update => 
+// vulnerabilities ?? minor security conceerns with dependencies 
+// fix => npm audit fix => install security less
+// ------------
+
+// Virtual DOM => replica of actual DOM in Javascript
+// changed dom compared with actual dom repective update done for that node only
+// Settings tools => rendering => Paint flashing
+// Unidirectional flow => Building Views from State(Data), Views -> Action -> State
+
+// setState => asyncronous call, does not gurantees when it will complete
+// this.setState({ searchField: e.target.value }, () => {}) CALLBACk bad practise
+// BPractice =***
+// this.setState((prevState, prevProps) => {
+//   return { field : prevState.field}
+// }, () => { // Ever want to use state after update use callback})
+
+// Adding props
+// <App propValue={value} /> 
+
+// Life Cycle Methods
+// Mounting => component put on DOM at first
+// 1.constructor => 2.super(); on extending class to pull out all their functionality
+// 3. render components tells to display, props value validated
+// 4. react updates DOM and refs
+// 5. COMPONENTDIDMOUNT
+// 6. SHOULDCOMPOENTUPDATE (nextProps, nextState) => component rerender or not 
+// return true/false
+// 7. COMPONENTDIDUPDATE
+// 8. COMPONENTUNMOUNT => react strips component, memory leakages
